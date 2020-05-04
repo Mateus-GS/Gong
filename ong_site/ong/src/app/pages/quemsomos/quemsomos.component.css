@@ -1,0 +1,26 @@
+.nav-link{
+    color: white;
+    
+}
+.nav-link:hover{
+    color :#04d98b;
+}
+.btn-cadastro{
+    background-color: #04d98b;
+    border: #04d98b;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+}
+.btn-cadastro:hover{  
+    color :#0c3d63;
+}
+
+#textoQuemsomos{
+    text-align: center;
+}
+
+#textoQuemsomos h1{
+    text-justify: auto;
+    color: #0c3d63;
+}

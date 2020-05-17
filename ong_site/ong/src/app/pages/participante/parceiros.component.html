@@ -20,9 +20,32 @@
   </nav>
 </div>
 
-<div id="textoQuemsomos">
-  <img  class ="logoUnibh" src="../../../assets/_logounibh.png" alt="Logo Unibh">
-  <h1>Quem Somos</h1>
-  <p>Somos estudantes da Universidade de Belo Horizonte (Unibh) e o nosso propósito com desse projeto é facilitar a relação entre Ongs.<br>
-  Quando pegamos sites de pequenas ongs o que podemos ver que em geral são pagínas pouco intuitivas e não muito amigável e com pouco conteúdo. Por conta disso, uma pessoa que deseja ser voluntario com ongs de animais e doação de roupa tinha que pesquisar mais de uma vez para achar o que deseja. Por isso, contruimos essa página para ser a ponte entre ongs e voluntarios de forma confiavel e segura. </p>
+<div>
+  <h1>Conheça nossos parceiros</h1>
+  <h2>Venha ser um você também !!</h2>
 </div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of Participante">
+        <th scope="row">{{ c.id_participante }}</th>
+        <td>{{ c.nome }}</td>
+        <td>{{ c.cpf }}</td>
+        <td>{{ c.endereco }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.telefone }}</td>
+        <td>{{ c.password }}</td>
+      </tr>
+    </tbody>
+  </table>

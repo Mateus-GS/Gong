@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import axios from "axios";
+
 
 @Component({
   selector: 'app-evento',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./evento.component.css']
 })
 export class EventoComponent implements OnInit {
+  constructor() { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }

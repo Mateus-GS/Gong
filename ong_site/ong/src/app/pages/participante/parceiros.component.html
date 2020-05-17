@@ -26,28 +26,26 @@
 </div>
 
 <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Atuação</th>
-      <th scope="col">Contato</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Ong 1</th>
-      <td>Comida</td>
-      <td>Rua 30, Bairro X, Belo Horizonte</td>
-    </tr>
-    <tr>
-      <th scope="row">Ong 2</th>
-      <td>Pet</td>
-      <td>Rua 20, Bairro Y, Contagem</td>
-    </tr>
-    <tr>
-      <th scope="row">Ong 3</th>
-      <td>Roupa</td>
-      <td>Rua 50, Bairro 5, Betim</td>
-    </tr>
-  </tbody>
-</table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of Participante">
+        <th scope="row">{{ c.id_participante }}</th>
+        <td>{{ c.nome }}</td>
+        <td>{{ c.cpf }}</td>
+        <td>{{ c.endereco }}</td>
+        <td>{{ c.email }}</td>
+        <td>{{ c.telefone }}</td>
+        <td>{{ c.password }}</td>
+      </tr>
+    </tbody>
+  </table>

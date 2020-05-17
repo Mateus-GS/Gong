@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EventoComponent } from './pages/evento/evento.component';
 import { QuemsomosComponent } from './pages/quemsomos/quemsomos.component';
-import { ParceirosComponent } from './pages/parceiros/parceiros.component';
+import { ParceirosComponent } from './pages/participante/parceiros.component';
 
 @NgModule({
   declarations: [

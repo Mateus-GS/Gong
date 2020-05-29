@@ -16,6 +16,10 @@ export class ParceirosComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  limpaECarrega(){
+    this.Participante = new Participante('id_participante', "string", "cpf", "endereco:", "email", "telefone", "password");
+    this.consultaParticipante();
+  }
 
   consultaParticipante(){
     axios
@@ -31,8 +35,23 @@ export class ParceirosComponent implements OnInit {
       console.log(error);
     })
     .finally(() => {});
-  }
- 
-
-
+  }gravar() {
+      axios
+        .post("http://localhost:8080/ong/Participante", {
+          id_participante: null,
+          nome: this.Participante,
+          cpf: this.Participante,
+          endereco: this.Participante,
+          email: this.Participante,
+          telefone: this.Participante,
+          password: this.Participante,
+        })
+        .then(response => {
+          this.limpaECarrega();
+        })
+        .catch(error => {
+          console.log(error);
+        })
+        .finally(() => {});
+    }
 }

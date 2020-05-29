@@ -16,6 +16,7 @@
       <a class="nav-link" href="/quemsomos">Quem Somos</a>
     </li>
     <button class="btn-cadastro">Cadastro</button>
+    <a href="nav-link" href="/cadastro"></a>
   </ul>
   </nav>
 </div>
@@ -38,14 +39,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let c of Participante">
-        <th scope="row">{{ c.id_participante }}</th>
-        <td>{{ c.nome }}</td>
-        <td>{{ c.cpf }}</td>
-        <td>{{ c.endereco }}</td>
-        <td>{{ c.email }}</td>
-        <td>{{ c.telefone }}</td>
-        <td>{{ c.password }}</td>
+      <tr *ngFor="let t of Participante">
+        <th scope="row">{{ t.id_participante }}</th>
+        <td>{{ t.nome }}</td>
+        <td>{{ t.cpf }}</td>
+        <td>{{ t.endereco }}</td>
+        <td>{{ t.email }}</td>
+        <td>{{ t.telefone }}</td>
+        <td>{{ t.password }}</td>
       </tr>
     </tbody>
   </table>

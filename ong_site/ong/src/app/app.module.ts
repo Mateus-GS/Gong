@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { EventoComponent } from './pages/evento/evento.component';
 import { QuemsomosComponent } from './pages/quemsomos/quemsomos.component';
 import { ParceirosComponent } from './pages/participante/parceiros.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ParceirosComponent } from './pages/participante/parceiros.component';
     HomeComponent,
     EventoComponent,
     QuemsomosComponent,
-    ParceirosComponent
+    ParceirosComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,

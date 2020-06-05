@@ -8,7 +8,8 @@ import axios from "axios";
   styleUrls: ['./parceiros.component.css']
 })
 export class ParceirosComponent implements OnInit {
-  Participante: Participante[] = [];
+  participante: Participante;
+  participantes: Participante[] = [];
 
   constructor() {
     this.consultaParticipante();
@@ -17,7 +18,7 @@ export class ParceirosComponent implements OnInit {
   ngOnInit(): void {
   }
   limpaECarrega(){
-    this.Participante = new Participante('id_participante', "string", "cpf", "endereco:", "email", "telefone", "password");
+    this.participante = new Participante(-2, "string", "cpf", "endereco:", "email", "telefone", "password");
     this.consultaParticipante();
   }
 
@@ -26,9 +27,9 @@ export class ParceirosComponent implements OnInit {
     .get("http://localhost:8080/ong/Participante")
     .then(response => {
       console.log(response);
-      for (let t of response.data._embedded.parceiros) {
+      for (let t of response.data._embedded.Participante) {
         console.log(t);
-        this.Participante.push(new Participante(t.id_participante, t.nome, t.cpf, t.endereco, t.email, t.telefone, t.password));
+        this.participantes.push(new Participante(t.id, t.nome, t.cpf, t.endereco, t.email, t.telefone, t.password));
       }
     })
     .catch(error => {
@@ -38,13 +39,13 @@ export class ParceirosComponent implements OnInit {
   }gravar() {
       axios
         .post("http://localhost:8080/ong/Participante", {
-          id_participante: null,
-          nome: this.Participante,
-          cpf: this.Participante,
-          endereco: this.Participante,
-          email: this.Participante,
-          telefone: this.Participante,
-          password: this.Participante,
+          id: null,
+          nome: this.participante.nome,
+          cpf: this.participante.cpf,
+          endereco: this.participante.endereco,
+          email: this.participante.email,
+          telefone: this.participante.telefone,
+          password: this.participante.password,
         })
         .then(response => {
           this.limpaECarrega();

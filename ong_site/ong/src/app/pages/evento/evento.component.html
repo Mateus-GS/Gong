@@ -21,36 +21,22 @@
 </div>
 
 <table class="table">
-  <thead class="thead-dark">
+  <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Descrição</th>
-      <th scope="col">Hora e data</th>
+      <th scope="col">Data</th>
+      <th scope="col">Descricao</th>
       <th scope="col">Local</th>
-      <th scope="col">Quantidade de pessoas</th>
+      <th scope="col">Quantidade de participantes</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Sauve os cachorros</th>
-      <td>Em defesa dos animais</td>
-      <td>Dia 30 de maio</td>
-      <td>Contagem</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th scope="row">Contra a fome</th>
-      <td>Fornecendo comida para os mais nessecitados</td>
-      <td>Dia 5 de maio</td>
-      <td>Belo Horizonte</td>
-      <td>100</td>
-    </tr>
-    <tr>
-      <th scope="row">Contra o frio</th>
-      <td>Combate ao frio é o nosso lema</td>
-      <td>Dia 25 de fevereiro</td>
-      <td>Contagem</td>
-      <td>20</td>
+    <tr *ngFor="let t of evento">
+      <td>{{ t.nome }}</td>
+      <td>{{ t.data_hora }}</td>
+      <td>{{ t.descricao}}</td>
+      <td>{{ t.local }}</td>
+      <td>{{ t.quant_participante }}</td>
     </tr>
   </tbody>
 </table>

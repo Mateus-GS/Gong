@@ -8,7 +8,7 @@ export class Evento {
     local: string;
     quant_participante: number;
     espaco: number;
-    constructor (id: number,Participante: number, Ong: number ,nome: string, data_hora: string, descricao: string, local: string, quant_participante: number, espaco: number) {
+    constructor (id: number, Participante: number, Ong: number ,nome: string, data_hora: string, descricao: string, local: string, quant_participante: number, espaco: number) {
         this.id = id;
         this.Participante = Participante;
         this.Ong =Ong;

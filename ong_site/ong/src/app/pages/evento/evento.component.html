@@ -3,11 +3,14 @@
 <div class="menu">
   <nav class="navbar navbar-light justify-content-end" style="background-color: #0c3d63" >
     <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/home">Home</a>
-      </li>
+     <li class="nav-item">
+      <a class="nav-link" href="/home">Home</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="/parceiros">Parceiros</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/ong">Ongs</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/evento">Eventos</a>
@@ -20,7 +23,73 @@
   </nav>
 </div>
 
+<!--<div *ngIf="evento.id != -2" class="form-group" ></div>
+<input type="hidden"  [(ngModel)]="evento.id">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Cadastro</span>
+  </div>
+  <input type="text" [(ngModel)]="evento.nome" class="form-control" aria-label="Nome" aria-describedby="basic-addon1" placeholder="Nome">
+  <input type="text" [(ngModel)]="evento.data_hora" class="form-control" aria-label="data_hora" aria-describedby="basic-addon1" placeholder="Data e Hora">
+  <input type="text" [(ngModel)]="evento.descricao" class="form-control" aria-label="descricao" aria-describedby="basic-addon1" placeholder="Descricao">
+  <input type="text" [(ngModel)]="evento.local" class="form-control" aria-label="local" aria-describedby="basic-addon1" placeholder="Local">
+  <input type="text" [(ngModel)]="evento.quant_participante" class="form-control" aria-label="quant_participante" aria-describedby="basic-addon1" placeholder="quant_participante">
+  <input type="text" [(ngModel)]="evento.espaco" class="form-control" aria-label="espaco" aria-describedby="basic-addon1" placeholder="espaco">
+</div>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    <button *ngIf="evento.id == -2" type="submit" class="btn btn-primary" (click)="gravar()">Gravar</button>
+    <button *ngIf="evento.id > 0" type="submit" class="btn btn-primary" (click)="gravar()">Alterar</button>
+  </div>
+  <div *ngIf="evento.id > 0" class="btn-group mr-2" role="group" aria-label="Second group">
+    <button type="submit" class="btn btn-primary" (click)="excluir(evento.id)">Excluir</button>
+  </div>
+  <div class="btn-group mr-2" role="group" aria-label="Second group">
+    <button type="submit" class="btn btn-primary" (click)="listar()">Listar</button>
+  </div>
+  <div>
+    <button *ngIf="evento.id == -2" type="submit" class="btn btn-primary" (click)="novo()">Novo</button>
+  </div>
+</div>-->
+<div class="btn-group mr-2" role="group" aria-label="Second group">
+  <button type="submit" class="btn btn-primary" (click)="listar()">Listar</button>
+</div>
+
 <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Data</th>
+      <th scope="col">Descricao</th>
+      <th scope="col">Local</th>
+      <th scope="col">Quantidade de participantes</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of evento">
+      <th  scope="row">{{ e.id }}</th>
+      <td>{{ e.nome }}</td>
+      <td>{{ e.data_hora }}</td>
+      <td>{{ e.descricao}}</td>
+      <td>{{ e.local }}</td>
+      <td>{{ e.quant_participante }}</td>
+      <td><button (click)="editar(e)" class="btn btn-default"><svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+      </svg></button></td>
+      <td><button (click)="excluir(e.id)" class="btn btn-default"><svg class="bi bi-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+        <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+      </svg></button></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--<table class="table">
   <thead>
     <tr>
       <th scope="col">Nome</th>
@@ -31,12 +100,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let t of evento">
-      <td>{{ t.nome }}</td>
-      <td>{{ t.data_hora }}</td>
-      <td>{{ t.descricao}}</td>
-      <td>{{ t.local }}</td>
-      <td>{{ t.quant_participante }}</td>
+    <tr *ngFor="let e of evento">
+      <td>{{ e.nome }}</td>
+      <td>{{ e.data_hora }}</td>
+      <td>{{ e.descricao}}</td>
+      <td>{{ e.local }}</td>
+      <td>{{ e.quant_participante }}</td>
     </tr>
   </tbody>
-</table>
+</table>-->

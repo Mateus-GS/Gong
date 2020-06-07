@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from "axios";
 
 @Component({
   selector: 'app-cadastro',
@@ -11,5 +12,5 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ 
 }

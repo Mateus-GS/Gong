@@ -18,16 +18,14 @@ export class EventoComponent implements OnInit {
   ngOnInit(): void {
   }
   limpaECarrega(){
-    this.evento = new Evento(-2,-1, -1, "ong", "nome", "descricao", "local" ,100, 100 )
+    this.evento = new Evento(-2, "nome", "data_hora", "descricao", "local" ,100, 100 )
     this.consultaEvento();
   }
   listar(){
-    this.evento = new Evento(-2, -1, -1, "ong", "nome", "descricao", "local" ,100, 100 );
+    this.evento = new Evento(-2, "nome", "data_hora", "descricao", "local" ,100, 100 )
   }
   novo(){
-    this.evento.id = -2;
-    this.evento.Participante = 9;
-    this.evento.Ong = 1;
+    this.evento.id = -1;
     this.evento.nome = "";
     this.evento.data_hora = "";
     this.evento.descricao = "";
@@ -42,7 +40,7 @@ export class EventoComponent implements OnInit {
       console.log(response);
       for (let e of response.data._embedded.Eventos) {
         console.log(e);
-        this.eventos.push(new Evento(e.id, e.Participante, e.Ong, e.nome, e.data_hora, e.descricao, e.local, e.quant_participante, e.espaco));
+        this.eventos.push(new Evento(e.id, e.nome, e.data_hora, e.descricao, e.local, e.quant_participante, e.espaco));
       }
     })
     .catch(error => {
@@ -51,12 +49,10 @@ export class EventoComponent implements OnInit {
     .finally(() => {});
   }
   gravar() {
-    if (this.evento.id == -2) {
+    if (this.evento.id == -1) {
       axios
         .post("http://localhost:8080/ong/Eventos/", {
           id: null,
-          Participante : this.evento.Participante, 
-          Ong : this.evento.Ong,
           nome: this.evento.nome,
           data_hora : this.evento.data_hora,
           local: this.evento.local,
@@ -75,8 +71,6 @@ export class EventoComponent implements OnInit {
       axios
         .put("http://localhost:8080/ong/Eventos/" + this.evento.id, {
           id: this.evento.id,
-          participante: this.evento.Participante,
-          ong: this.evento.Ong,
           nome: this.evento.nome,
           data_hora : this.evento.data_hora,
           local: this.evento.local,
@@ -95,8 +89,6 @@ export class EventoComponent implements OnInit {
   }  editar(e: Evento) {
 
     this.evento.id = e.id;
-    this.evento.Participante = e.Participante;
-    this.evento.Ong = e.Ong;
     this.evento.nome = e.nome;
     this.evento.data_hora= e.data_hora;
     this.evento.descricao = e.descricao;
